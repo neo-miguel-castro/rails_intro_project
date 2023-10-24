@@ -3,6 +3,7 @@ class StaticPagesController < ApplicationController
     @articles = []
     if params[:search].present?
       @articles = Article.where("title ILIKE ?", "%#{params[:search]}%").includes(:author, :publisher)
+      @countries = Country.joins(:article_countries).distinct
     end
   end
 

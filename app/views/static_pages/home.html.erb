@@ -14,7 +14,7 @@
       <th>Author</th>
       <th>Publisher</th>
       <th>Published Date</th>
-      <!-- Add more columns as needed -->
+      <th>Countries</th>
     </tr>
   </thead>
   <tbody id="articles-results">
@@ -24,6 +24,13 @@
       <td><%= link_to article.author.name, author_path(article.author) %></td>
       <td><%= article.publisher.name %></td>
       <td><%= article.published_date.strftime('%B %d, %Y') %></td>
+      <td>
+        <ul>
+          <% article.countries.each do |country| %>
+            <li><%= link_to country.name, country_path(country) %></li>
+          <% end %>
+        </ul>
+      </td>
       </tr>
     <% end %>
   </tbody>
