@@ -7,7 +7,6 @@
   </div>
 <% end %>
 
-<!-- Placeholder for search results table -->
 <table>
   <thead>
     <tr>
@@ -22,7 +21,7 @@
     <% @articles.each do |article| %>
       <tr>
       <td><%= article.title %></td>
-      <td><%= article.author.name %></td>
+      <td><%= link_to article.author.name, author_path(article.author) %></td>
       <td><%= article.publisher.name %></td>
       <td><%= article.published_date.strftime('%B %d, %Y') %></td>
       </tr>
